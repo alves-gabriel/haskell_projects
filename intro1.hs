@@ -1,4 +1,4 @@
--- Hints: functinons can't begin with uppercase letters
+-- # Hints: functinons can't begin with uppercase letters
 -- functions w/ no arguments are efinitions
 
 main :: IO ()
