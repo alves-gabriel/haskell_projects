@@ -8,6 +8,8 @@
 --
 -- # Refs
 --  > https://www.youtube.com/watch?v=ccExc6rrUN8
+--  > https://en.wikibooks.org/wiki/Haskell/Lists_II
+--  > https://en.wikibooks.org/wiki/Haskell/Lists_III
 
 main :: IO()
 
@@ -34,10 +36,10 @@ total_anon = (\x y z -> x+y+z)
 --  used to perform this conversion.
 --
 --  map :: (a -> b) [a] -> [b]
---   [a, b, ...,  y,  z]
---   |  |        |   |
---   v  v        v   v
---  [1, 2, ..., n-1, n]
+--   [a,  b, ...,  y,  z]
+--    |   |        |   |
+--    v   v        v   v
+--   [a', b', ..., y', z']
 --
 -- Function which increaments each element in a list
 list_increment lst = map (\x -> x + 1) lst
