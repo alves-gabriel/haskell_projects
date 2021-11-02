@@ -73,6 +73,30 @@ isAll el = foldr (\x acc -> x==el && acc) True
 --  foldl (/) 16 [4,2]
 --  foldl (/) 8 [4]
 --  foldl (/) 2 [] => 2
+--
+--  Or:
+--
+--  ################################################
+--  # foldl (⊕) a [x1,...,xn] = a ⊕ x1 ⊕ ... ⊕ xn  #
+--  ################################################
+--
+--  foldl (/) 64 [4,2,4]; here a = 64 and [x1, x2, x3] = [4, 2, 4], so
+--  64 / 4 / 2 / 4 = 2
+--  or
+--  foldl (-) -1 [1, 2, 3];
+--  (-1) ⊕ 1 ⊕ ... ⊕ 3, where ⊕ = (-)
+--  (-1) (-) 1 (-) 2 (-) 3
+--  ((-1) - 1) (-) 2 (-) 3
+--  (((-1) - 1) - 2) (-) 3
+--  ((((-1) - 1) - 2) - 3) = - 7
+--
+--  Compare this with;
+--  foldr (-) -1 [1, 2, 3];
+--  1 ⊕ ... ⊕ 3 ⊕ (-1), where ⊕ = (-)
+--  1 (-) 2 (-) 3 (-) (-1)
+--  1 (-) 2 (-) (3 - (-1))
+--  1 (-) (2 - (3 - (-1)))
+--  (1 - (2 - (3 - (-1)))) = 3
 
 -- # Folding (tree)
 --  What if we define it on a tree?
@@ -87,3 +111,5 @@ main =
     putStrLn ("Is all 5 in [5, 5, 44]? " ++ (show $ isAll 5 [5, 5, 44]))
     putStrLn ("Is all 5 in [5, 5, 5]? " ++ (show $ isAll 5 [5, 5, 5]))
     putStrLn ("The code foldl (/) 64 [4,2,4] yields " ++ (show $ foldl (/) 64 [4,2,4]))
+    putStrLn ("The code foldl (-) -1 [1,2,3] yields " ++ (show $ foldl (-) (-1) [1,2,3]))
+    putStrLn ("The code foldr (-) -1 [1,2,3] yields " ++ (show $ foldr (-) (-1) [1,2,3]))
