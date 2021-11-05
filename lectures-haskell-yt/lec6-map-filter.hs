@@ -10,6 +10,7 @@
 --  > https://www.youtube.com/watch?v=ccExc6rrUN8
 --  > https://en.wikibooks.org/wiki/Haskell/Lists_II
 --  > https://en.wikibooks.org/wiki/Haskell/Lists_III
+--  > https://hackage.haskell.org/package/base-4.9.0.0/docs/Data-List.html
 
 main :: IO()
 
@@ -41,6 +42,10 @@ total_anon = (\x y z -> x+y+z)
 --    v   v        v   v
 --   [a', b', ..., y', z']
 --
+--  in other words,
+--
+--  map f [x1, x2, ...] == [f x1, f x2, ...]
+
 -- Function which increaments each element in a list
 list_increment lst = map (\x -> x + 1) lst
 
