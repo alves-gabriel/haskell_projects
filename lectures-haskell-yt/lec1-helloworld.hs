@@ -1,6 +1,10 @@
+-- # Instalation
+--
+--  sudo apt-get install haskell-platform
+--
 -- # Tools
 --  Atom package: apm install language-haskell ide-haskell ide-haskell-cabal, see
-
+--
 -- # Execution: runhaskell helloworld.hs
 --  or ghci  helloworld.hs (compiled)
 -- (or ghc to make build files. The i stands for interactive)

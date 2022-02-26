@@ -70,11 +70,29 @@ range n m
 --  The basic structure is something like:
 --  [ <gen> | <elem> <- <list>, ..., <guard>, ...]
 --
--- Example: let's create a functioni which doubles the function and cuts small elements
+-- <- is sometimes read as bind, is drawn from, gets etc. See: https://stackoverflow.com/questions/7746894/are-there-pronounceable-names-for-common-haskell-operators
+--
+-- This operations ""<elem> <- <...>" is sometimes called generator (https://wiki.haskell.org/List_comprehension)
+--
+-- Example: let's create a function which doubles the function and cuts small elements
 double_and_cut :: [Int] -> [Int]
 double_and_cut y = [ 2*x | x <- y, x > 2 ]
 
 -- Tuples
+--
+-- Note that changing the order of generators also changes the outputs, e.g.,
+--
+-- Given a = [1, 2, 3] and y = [4, 5], one has
+--
+-- tuple a b = [ (x,y) | x <- a, y <-b], which yields
+-- [(1,4),(1,5),(2,4),(2,5),(3,4),(3,5)]
+--
+-- while, tuple_rev a b = [ (x,y) | y <-b, x<-a] yields
+-- [(1,4),(2,4),(3,4),(1,5),(2,5),(3,5)]
+--
+-- The rightmost generator seems to be looped first! I.e. in tuple a b we first fix
+-- x = 1 (the first value) and then loop through y = [4, 5]
+
 tuple a b = [ (x,y) | x <- a, y <- b ]
 
 -- List Patterns
@@ -109,10 +127,10 @@ evens (x:xs)
 --  They are way of having two elements in a pair (or more).
 --  e.g., (5,.44) :: (Int,Float)
 --  They can be conveniently used in patter matching
---  Another important fact is that, differently from the lists, tuplesa are immutable
+--  Another important fact is that, differently from the lists, tuples are immutable
 --  we can't change their length, for instance. Also, the elements need not to be of the same type
 --
--- The two functions below are already built-in tho, as fst and snd
+-- The two functions below are already built-in though, as fst and snd
 fst_tuple :: (a,b) -> a
 fst_tuple (x,_) = x
 
