@@ -41,11 +41,27 @@ pathQ graph a b
         -- only edges to be visited remain on compPath.
         compPath = [(x,y) | (x,y) <- graph, x/=a ]
 
+-- pathQ path 1 4
+-- or [pathQ compPath1 2 4], where  compPath1A = [(2,3), (2, 5), (3,2), (3,4), (5,6)]
+--
+-- I.e., compPath is the path where all the edges where the current vertex is not the source (also excluding the visited ones, of course)
+--
+-- or (or (pathQ compPath2 3 4]) or (opathQ compPath2 5 4)),
+--
+-- Since 3 and 5 are the neighbors of 2, and we want to arrive in 4. Moreover,
+-- we have that compPath2 = [(x,y) | (x,y) <- compPath1, x/=2 ]
+--              compPath2 = [(3, 2), (3, 4), (5, 6)]
+--
+-- Note that the vertex (3, 2) which "goes back to 2" is not a problem at all,
+-- since there are no paths in compPath2 which originate from 2. This means that
+-- we won't be stuck a an infinite loop/cyclical path
+
 -- Results
 main =
   do
     putStrLn ("Is 1 -> 4 a valid path? " ++ (show (pathQ path 1 4)))
     putStrLn ("Is 1 -> 3 a valid path? " ++ (show (pathQ path 1 3)))
     putStrLn ("Is 1 -> 5 a valid path? " ++ (show (pathQ path 1 5)))
+    putStrLn ("Is 3 -> 2 a valid path? " ++ (show (pathQ path 3 2)))
     putStrLn ("Is 4 -> 1 a valid path? " ++ (show (pathQ path 4 1)))
     putStrLn ("Is 5 -> 4 a valid path? " ++ (show (pathQ path 5 4)))

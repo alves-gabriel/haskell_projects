@@ -39,7 +39,7 @@ main :: IO()
 --  - Now we take the free variable x and explicity put it as an argument of map2D
 --   map2D x = (\f1 xs -> map f1 xs) ((\f2 ys -> map f2 ys) x)
 --
---  - Now, since we have an anonymous definitino on the second term f2, we can put x as its first argument. So
+--  - Now, since we have an anonymous definition on the second term f2, we can put x as its first argument. So
 --  we replace f2 by x.
 --  map2D x = (\f1 xs -> map f1 xs) (\ys -> map x ys)
 --

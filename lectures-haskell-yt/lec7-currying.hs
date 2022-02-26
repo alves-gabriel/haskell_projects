@@ -6,6 +6,8 @@
 --
 -- # Refs
 --  > https://www.youtube.com/watch?v=m12c99qgHBU
+--  > https://stackoverflow.com/questions/6652234/how-does-currying-work
+--  > https://wiki.haskell.org/Currying
 
 main :: IO()
 
@@ -24,7 +26,7 @@ add = (\x -> (\y -> x + y))
 
 -- # Partial function application
 --  What would we get writing "add 1" in the previous function? Note that at its core
---  add returns a new function! Because first we pass x, then we get a new function, to
+--  "add" returns a new function! Because first we pass x, then we get a new function, to
 --  which we pass y. This new function is:
 --  add 1 :: Int -> Int => (\y + 1 + y),
 --  so we pass an argument (which would be the y, previously), and finally get a number
@@ -38,6 +40,14 @@ add = (\x -> (\y -> x + y))
 --  Note how this function does not need any arguments, since they are "implicitly"
 --  defined on the right-hand side.
 doubleList = map (\x -> 2*x)
+
+-- Notice the comment Mirzhan Irkegulov's reply in the stack exchange question:
+--
+-- "That's why function application syntax in Haskell has no parentheses and commas,
+-- compare Haskell's f a b c with Python's or Java's f(a, b, c). It's not some weird
+--  aesthetic decision, in Haskell function application goes from left to right, so
+-- f a b c is actually (((f a) b) c), which makes complete sense, once you know
+-- that f is curried by default."
 
 main =
   do
