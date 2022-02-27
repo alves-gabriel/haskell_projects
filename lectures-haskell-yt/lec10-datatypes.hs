@@ -22,11 +22,24 @@ main :: IO()
 --  Examples:
 --
 --  data Color = Red | Orange | Yellow | Green | Blue | Magenta
---  data NaturalNumber = Succ NaturalNumber | Zero (it's either zero or a recursevely defined number, comign from Succ)
+--  data NaturalNumber = Succ NaturalNumber | Zero (it's either zero or a recursevely defined number, coming from Succ)
 --  data Calculation = Add Int Int | Sub Int Int | Mul Int Int | Div Int Int
 --
---  Our own constructors, can, for instance be used in a pattern matching (just like it was doen with lists)
+--
+--  This is equivalent to writing:
+--    Red :: Color
+--    Orange :: Color... etc
+--
+--  If we type ":type Red" in ghci we get
+--
+--  *Main> data Color = Red | Orange | Yellow | Green
+--  *Main> :type Red
+--
+--  This is pretty useful!
+--
+--  Our own constructors, can, for instance be used in a pattern matching (just like it was done with lists)
 --  (The lists had two constructors: the :/prepend constructor and the empty list.
+
 data Calculation = Add Int Int | Sub Int Int | Mul Int Int | Div Int Int
 calc :: Calculation -> Int
 calc (Add x y) = x+y

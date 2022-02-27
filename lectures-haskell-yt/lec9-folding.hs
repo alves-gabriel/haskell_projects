@@ -17,12 +17,14 @@ main :: IO()
 --  foldr :: (a-> b -> b) -> b ->[a] -> b
 --  Has one argument of type a and other of type b. Returns function of type b. It's then defined as:
 --
---  foldr (⊕) a [x1,...,xn] = x1 ⊕ ... ⊕ xn ⊕ a
+--  ################################################
+--  # foldr (⊕) a [x1,...,xn] = x1 ⊕ ... ⊕ xn ⊕ a  #
+--  ################################################
 --
 --  So, in pratice a is the starting values (in some contexts it's called the accumulator)
 --  Thus, foldr is just the combination of all the functions and its starting value.
 --
---  For instance, we may have foldr )(+) 0 [1,...,n] = 1 + 2 + ... + n + 0
+--  For instance, we may have foldr (+) 0 [1,...,n] = 1 + 2 + ... + n + 0
 --  Down below I'm using partial function application, but I could've written
 --  total lst = foldr (+) 0 lst as well
 total :: [Int] -> Int
@@ -60,7 +62,7 @@ isAll el = foldr (\x acc -> x==el && acc) True
 --  For instance:
 --
 --  foldr (-) 0 [1, 2, 3]  = 1 - (2 - (3))) = 1 - (-1) = 2
---  foldl (-) 0 [1, 2, 3]  = ((1) - 2) - 3 = -4
+--  foldl (-) 0 [1, 2, 3]  = ((0 - 1) - 2) - 3 = -6
 --
 --    From another site: "It takes the second argument and the first item of the list and
 --    applies the function to them, then feeds the function with this result and the second
