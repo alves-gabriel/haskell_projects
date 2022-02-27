@@ -8,6 +8,9 @@
 --  > https://www.youtube.com/watch?v=dR_aUQXw5fs
 --  > https://typeclasses.com/featured/dollar
 --  > https://stackoverflow.com/questions/940382/what-is-the-difference-between-dot-and-dollar-sign
+--  > https://riptutorial.com/haskell/topic/4430/function-composition
+--  > http://www.sfu.ca/~tjd/383summer2019/haskell_comp_and_app_lhs.html#:~:text=Composing%20functions%20is%20a%20common,g%20and%20then%20calls%20f.
+--  > https://stackoverflow.com/questions/3030675/haskell-function-composition-and-function-application-idioms-correct-us?rq=1
 
 import Data.List
 
@@ -16,11 +19,18 @@ main :: IO()
 -- # Function composition
 --  The idea behind this is the following equivalence relation formo the dot/composition operator:
 --
---  (.) :: (b->c) -> (a ->b ) -> a -> c
+--  (.) :: (b -> c) -> (a -> b ) -> a -> c
 --
 --  so, (f . g) is equivalent to (\x -> f (g x))
 --
---  So we first apply g to x and then f. For instance, suppose we have a "reverse" and a "sort" function.
+--  So we first apply g to x and then f. We can see that (.) is a function which takes
+--  three inputs, since it has a type signature of the following form: w -> x -> y -> z
+--
+--  Thus, the first two inputs are functions of type signature (b->c) and (a ->b ), respectively.
+--  The third input is a, and the output is c. So, in f . g, f has type (b->c) and
+--  g has type (a -> b ).
+--
+--  For instance, suppose we have a "reverse" and a "sort" function.
 --  The following three definitions are equivalent:
 --
 --  descSort = reverse . sort
