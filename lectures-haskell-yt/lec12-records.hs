@@ -14,15 +14,17 @@ main :: IO()
 
 -- We use records in order to construct with our own typeclasses!
 --
--- Ex: functions dealing with "Person" should handle name and age, .e.g.
+-- Ex: functions dealing with "Person" should handle name and age, e.g.
 -- data Person = Person String Int
 -- This is not so nice because the data type does not reflect that. We can use records:
 data Person = PersonData { name :: String, age :: Int }
 
 -- From this definition, automatically these functions are generated:
 --
--- name :: Person -> String
--- age :: Person -> Int
+--  Prelude> :type name
+--  name :: Person -> String
+--  Prelude> :type age
+--  age :: Person -> Int
 --
 -- Here "data" means we're defining a new data type called Person.
 -- Before "=": the data type itself
