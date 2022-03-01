@@ -115,11 +115,7 @@ phi (ThreeD x y z) = acos (z/ radius (ThreeD x y z))
 
 We can call this functions in the following way, for example:
 
-<<<<<<< HEAD
 ```
-=======
-```haskell
->>>>>>> eff0dddf7e04a280918368fba702bcccc05a5255
 *Main> let coordinate1 = ThreeD {x1 = 0, y1 = -1, z1 = 3}
 *Main> radius coordinate1
 3.1622777
@@ -139,11 +135,7 @@ dotProd (ThreeD c0 c1 c2) (ThreeD c0' c1' c2') = c0*c0' + c1*c1' + c2*c2'
 
 Example usage:
 
-<<<<<<< HEAD
 ```
-=======
-```Haskell
->>>>>>> eff0dddf7e04a280918368fba702bcccc05a5255
 *Main> let coordinate1 = ThreeD {x1 = 0, y1 = -1, z1 = 3}
 *Main> let coordinate2 = ThreeD {x1 = 1, y1 =  1, z1 = 2}
 *Main> coordinate1 `vecAdd` coordinate2
