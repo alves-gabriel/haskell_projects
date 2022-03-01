@@ -24,7 +24,11 @@ main :: IO()
 --  data Color = Red | Orange | Yellow | Green | Blue | Magenta
 --  data NaturalNumber = Succ NaturalNumber | Zero (it's either zero or a recursevely defined number, coming from Succ)
 --  data Calculation = Add Int Int | Sub Int Int | Mul Int Int | Div Int Int
+--  data Shape = Circle Float Float Float | Rectangle Float Float Float Float
 --
+--  In the LHS we have the data type, while in the RHS we have the value constructors
+--  (Note how in the last exammbple each value constructor may have many fields).
+--  Value constructors are, at the end of the day, just functions.
 --
 --  This is equivalent to writing:
 --    Red :: Color
