@@ -143,3 +143,33 @@ Example usage:
 *Main> coordinate1 `dotProd` coordinate2
 5.0
 ```
+
+Finally, we define a new data type called `Geometrical`. Here we do not use
+the record syntax, note the difference. We also define a new function for
+constructing a rectangle given two points. By feed the lower left and upper right
+corners of the rectangle as `Points` we get its width and height. Finally,
+we construct a function which calculates the area of the given rectangle:
+
+```haskell
+data Geometrical =
+     Rectangle Float Float
+   | Ellipse Float Float Float Float deriving (Show)
+
+pointsToRec :: Point -> Point -> Geometrical
+pointsToRec (TwoD c0 c1) (TwoD c0' c1') = Rectangle (c0' - c0) (c1' - c1)
+
+recArea :: Geometrical -> Float
+recArea (Rectangle width height) = width * height
+```
+
+Note that we use `deriving (Show)` here in order to avoid the need of manually handling the printing of this data type. These functions can be called in the following manner:
+
+```
+*Main> let corner1 = TwoD {x0 = 0, y0 = 0}
+*Main> let corner2 = TwoD {x0 = 2, y0 = 5}
+*Main> rectangle1 = pointsToRec corner1 corner2
+*Main> rectangle1
+Rectangle 2.0 5.0
+*Main> recArea rectangle1
+10.0
+```

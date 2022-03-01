@@ -68,3 +68,14 @@ vecAdd (ThreeD c0 c1 c2) (ThreeD c0' c1' c2') = ThreeD {x1 = c0 + c0', y1 = c1 +
 
 dotProd :: Point -> Point -> Float
 dotProd (ThreeD c0 c1 c2) (ThreeD c0' c1' c2') = c0*c0' + c1*c1' + c2*c2'
+
+-- A new data type for geometrical figures
+data Geometrical =
+     Rectangle Float Float
+   | Ellipse Float Float Float Float deriving (Show)
+
+pointsToRec :: Point -> Point -> Geometrical
+pointsToRec (TwoD c0 c1) (TwoD c0' c1') = Rectangle (c0' - c0) (c1' - c1)
+
+recArea :: Geometrical -> Float
+recArea (Rectangle width height) = width * height
