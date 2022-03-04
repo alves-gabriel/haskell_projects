@@ -7,6 +7,7 @@
 --
 -- # Refs
 --  > https://www.youtube.com/watch?v=fP0srOQVGB8
+--  > https://en.wikibooks.org/wiki/Haskell/do_notation
 --
 --  Copy template with: cat template.hs >> "New file"
 
