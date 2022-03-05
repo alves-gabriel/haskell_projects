@@ -2,15 +2,15 @@
 
 Here we show how Haskell can be used to obtain the echelon form of a matrix through Gaussian elimination. Albeit several approaches are possible, we focus on a strategy which uses ```foldr``` to implement the algorithm. For that, let us consider the matrix:
 
-<center>
+<p align="center">
 <img src="http://latex.codecogs.com/svg.latex?M=\begin{matrix}\begin{pmatrix}1&space;&&space;2&space;&&space;3\\4&space;&&space;5&space;&&space;6\\5&space;&&space;7&space;&&space;8\end{pmatrix}\end{matrix}" title="http://latex.codecogs.com/svg.latex?M=\begin{matrix}\begin{pmatrix}1 & 2 & 3\\4 & 5 & 6\\5 & 7 & 8\end{pmatrix}\end{matrix}" />
-</center>
+</p>
 
 We begin by constructing an elementary function called `subRow` which eliminates the leading number in a row. Given two rows <img src="http://latex.codecogs.com/svg.latex?(x_1,&space;...,&space;x_m)&space;" title="http://latex.codecogs.com/svg.latex?(x_1, ..., x_m) " /> and <img src="http://latex.codecogs.com/svg.latex?(y_1,&space;...,&space;y_m)&space;" title="http://latex.codecogs.com/svg.latex?(y_1, ..., y_m) " />, we can eliminate the leading coefficient <img src="http://latex.codecogs.com/svg.latex?y_1" title="http://latex.codecogs.com/svg.latex?y_1" />  in the second row by performing the operation:
 
-<center>
+<p align="center">
 <img src="http://latex.codecogs.com/svg.latex?(y_1,&space;...,&space;y_m)&space;\rightarrow&space;(y_1,&space;...,&space;y_m)&space;&space;-&space;\frac{y_1}{x_1}&space;(x_1,&space;...,&space;x_m)" title="http://latex.codecogs.com/svg.latex?(y_1, ..., y_m) \rightarrow (y_1, ..., y_m) - \frac{y_1}{x_1} (x_1, ..., x_m)" />
-</center>
+</p>
 
 In the notation below, we eliminate the leading term from ```row2```. Thus,  
 

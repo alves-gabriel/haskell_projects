@@ -15,9 +15,9 @@ Prelude> mult 5 2
 
 Note how the list is constructed _recursively_. This is is implemented through the function  ```mcopy```, whose first argument is the index of the list (to keep track of how many copies should be made), so we can call it recursively until the index reaches 0. Meanwhile the second argument is just the number being copied. ```foldr``` is then used to apply the (+) operators to this list, effectively performing the sum
 
-<center>
-<img src="https://latex.codecogs.com/gif.latex?n \times m = \underbrace{n+...+ n}_{\text{m times}}" />
-</center>
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?n&space;\times&space;m&space;=&space;\underbrace{n&plus;...&plus;&space;n}_{\text{m&space;times}}" title="http://latex.codecogs.com/svg.latex?n \times m = \underbrace{n+...+ n}_{\text{m times}}" />
+</p>
 
 m times.
 
