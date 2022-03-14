@@ -13,9 +13,11 @@ nreplicate (x:xs) n = aux_repli (x:xs) n n where
     | m == 0    = nreplicate xs n
     | otherwise = x : aux_repli (x:xs) n (m-1)
 
--- *Main> nreplicate "abc" 0
--- ""
--- *Main> nreplicate "abc" 1
--- "abc"
--- *Main> nreplicate "abc" 3
--- "aaabbbccc"
+{-
+*Main> nreplicate "abc" 0
+""
+*Main> nreplicate "abc" 1
+"abc"
+*Main> nreplicate "abc" 3
+"aaabbbccc"
+}

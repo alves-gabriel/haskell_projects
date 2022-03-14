@@ -19,7 +19,9 @@ pack :: (Eq a) => [a] -> [[a]]
 pack []  = []
 pack lst = foldl pack_join [[head lst]] (tail lst)
 
--- *Main> pack ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']
--- ["aaaa","b","cc","aa","d","eeee"]
--- *Main> pack [1, 2, 3]
--- [[1],[2],[3]]
+{-
+*Main> pack ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']
+["aaaa","b","cc","aa","d","eeee"]
+*Main> pack [1, 2, 3]
+[[1],[2],[3]]
+}

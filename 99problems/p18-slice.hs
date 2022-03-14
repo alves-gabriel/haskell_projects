@@ -12,11 +12,13 @@ sliceN (x:xs) n = sliceN' (x:xs) n $ n-1 where
     | otherwise =                         -- If the n < 0, goes through the list in reverse order
       sliceN (reverse (x:xs)) $ (-n-1)
 
--- *Main> sliceN [1..10] 2
--- [2,4,6,8,10]
--- *Main> sliceN [1..10] 7
--- [7]
--- *Main> sliceN [1..10] $ -1
--- [10,9,8,7,6,5,4,3,2,1]
--- *Main> sliceN [1..10] 0
--- []
+{-
+*Main> sliceN [1..10] 2
+[2,4,6,8,10]
+*Main> sliceN [1..10] 7
+[7]
+*Main> sliceN [1..10] $ -1
+[10,9,8,7,6,5,4,3,2,1]
+*Main> sliceN [1..10] 0
+[]
+}
